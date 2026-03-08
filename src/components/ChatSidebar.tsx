@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Plus, MessageSquare, Trash2, Edit3, ChevronDown, Cpu, X } from "lucide-react";
+import { Plus, MessageSquare, Trash2, Edit3, ChevronDown, Cpu, X, Settings, LogOut, User, Moon, Sun } from "lucide-react";
 import { ChatSession, SDK_LIST } from "@/types/chat";
 import { Button } from "@/components/ui/button";
 import {
