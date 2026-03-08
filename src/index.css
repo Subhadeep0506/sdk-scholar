@@ -27,7 +27,7 @@
     --ring: 250 80% 60%;
     --radius: 0.75rem;
 
-    --sidebar-background: 0 0% 100%;
+    --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 220 20% 20%;
     --sidebar-primary: 250 80% 60%;
     --sidebar-primary-foreground: 0 0% 100%;
@@ -38,54 +38,64 @@
 
     --chat-user: 250 80% 60%;
     --chat-user-foreground: 0 0% 100%;
-    --chat-ai: 220 14% 94%;
+    --chat-ai: 0 0% 100%;
     --chat-ai-foreground: 220 20% 10%;
     --cot-bg: 220 20% 97%;
     --cot-border: 250 40% 80%;
     --cot-step-active: 250 80% 60%;
     --cot-step-done: 170 70% 45%;
     --glow-primary: 250 80% 60%;
+
+    --glass: 0 0% 100% / 0.72;
+    --glass-border: 0 0% 100% / 0.5;
+    --glass-hover: 0 0% 100% / 0.85;
+    --input-glass: 220 14% 96%;
   }
 
   .dark {
-    --background: 228 18% 8%;
+    --background: 228 18% 7%;
     --foreground: 220 15% 90%;
-    --card: 228 18% 11%;
+    --card: 228 18% 10%;
     --card-foreground: 220 15% 90%;
-    --popover: 228 18% 11%;
+    --popover: 228 18% 10%;
     --popover-foreground: 220 15% 90%;
     --primary: 250 80% 65%;
     --primary-foreground: 0 0% 100%;
-    --secondary: 228 15% 16%;
+    --secondary: 228 15% 14%;
     --secondary-foreground: 220 15% 85%;
-    --muted: 228 15% 16%;
+    --muted: 228 15% 14%;
     --muted-foreground: 220 10% 55%;
     --accent: 170 70% 50%;
     --accent-foreground: 0 0% 100%;
     --destructive: 0 72% 51%;
     --destructive-foreground: 0 0% 100%;
-    --border: 228 15% 18%;
-    --input: 228 15% 18%;
+    --border: 228 15% 15%;
+    --input: 228 15% 15%;
     --ring: 250 80% 65%;
 
-    --sidebar-background: 228 18% 10%;
+    --sidebar-background: 228 18% 8%;
     --sidebar-foreground: 220 15% 80%;
     --sidebar-primary: 250 80% 65%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 228 15% 14%;
+    --sidebar-accent: 228 15% 12%;
     --sidebar-accent-foreground: 220 15% 85%;
-    --sidebar-border: 228 15% 16%;
+    --sidebar-border: 228 15% 13%;
     --sidebar-ring: 250 80% 65%;
 
     --chat-user: 250 80% 60%;
     --chat-user-foreground: 0 0% 100%;
-    --chat-ai: 228 15% 14%;
+    --chat-ai: 228 15% 12%;
     --chat-ai-foreground: 220 15% 90%;
-    --cot-bg: 228 18% 12%;
-    --cot-border: 250 40% 40%;
+    --cot-bg: 228 18% 10%;
+    --cot-border: 250 40% 35%;
     --cot-step-active: 250 80% 65%;
     --cot-step-done: 170 70% 50%;
     --glow-primary: 250 80% 65%;
+
+    --glass: 228 18% 10% / 0.72;
+    --glass-border: 228 15% 18% / 0.6;
+    --glass-hover: 228 18% 12% / 0.85;
+    --input-glass: 228 15% 12%;
   }
 }
 
@@ -96,6 +106,8 @@
   body {
     @apply bg-background text-foreground;
     font-family: 'Space Grotesk', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
   code, pre {
     font-family: 'JetBrains Mono', monospace;
@@ -105,16 +117,92 @@
 @layer utilities {
   .scrollbar-thin {
     scrollbar-width: thin;
-    scrollbar-color: hsl(var(--muted-foreground) / 0.3) transparent;
+    scrollbar-color: hsl(var(--muted-foreground) / 0.2) transparent;
   }
   .scrollbar-thin::-webkit-scrollbar {
-    width: 6px;
+    width: 5px;
   }
   .scrollbar-thin::-webkit-scrollbar-track {
     background: transparent;
   }
   .scrollbar-thin::-webkit-scrollbar-thumb {
-    background: hsl(var(--muted-foreground) / 0.3);
+    background: hsl(var(--muted-foreground) / 0.2);
     border-radius: 3px;
+  }
+  .scrollbar-thin::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--muted-foreground) / 0.35);
+  }
+
+  .glass {
+    background: hsl(var(--glass));
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border: 1px solid hsl(var(--glass-border));
+  }
+
+  .glass-subtle {
+    background: hsl(var(--glass));
+    backdrop-filter: blur(12px) saturate(150%);
+    -webkit-backdrop-filter: blur(12px) saturate(150%);
+  }
+
+  /* Markdown prose overrides for chat */
+  .chat-markdown {
+    @apply text-sm leading-relaxed;
+  }
+  .chat-markdown p {
+    @apply mb-3 last:mb-0;
+  }
+  .chat-markdown h1, .chat-markdown h2, .chat-markdown h3 {
+    @apply font-bold mt-4 mb-2 first:mt-0;
+  }
+  .chat-markdown h1 { @apply text-lg; }
+  .chat-markdown h2 { @apply text-base; }
+  .chat-markdown h3 { @apply text-sm; }
+  .chat-markdown ul, .chat-markdown ol {
+    @apply pl-5 mb-3 space-y-1;
+  }
+  .chat-markdown ul { @apply list-disc; }
+  .chat-markdown ol { @apply list-decimal; }
+  .chat-markdown li {
+    @apply text-sm leading-relaxed;
+  }
+  .chat-markdown li > p {
+    @apply mb-1;
+  }
+  .chat-markdown code:not(pre code) {
+    @apply px-1.5 py-0.5 rounded-md text-xs font-mono;
+    background: hsl(var(--muted));
+    color: hsl(var(--primary));
+  }
+  .chat-markdown pre {
+    @apply rounded-xl p-4 mb-3 overflow-x-auto text-xs leading-relaxed;
+    background: hsl(var(--background)) !important;
+    border: 1px solid hsl(var(--border));
+  }
+  .chat-markdown pre code {
+    @apply text-xs font-mono p-0 bg-transparent;
+    color: hsl(var(--foreground));
+  }
+  .chat-markdown blockquote {
+    @apply border-l-2 border-primary/40 pl-4 italic text-muted-foreground mb-3;
+  }
+  .chat-markdown table {
+    @apply w-full mb-3 text-sm;
+  }
+  .chat-markdown th {
+    @apply text-left font-semibold pb-2 border-b border-border;
+  }
+  .chat-markdown td {
+    @apply py-1.5 border-b border-border/50;
+  }
+  .chat-markdown a {
+    @apply text-primary underline underline-offset-2 hover:text-primary/80;
+  }
+  .chat-markdown strong {
+    @apply font-semibold;
+  }
+  .chat-markdown hr {
+    @apply border-border my-4;
   }
 }
