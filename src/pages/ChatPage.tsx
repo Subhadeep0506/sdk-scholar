@@ -16,11 +16,21 @@ export default function ChatPage() {
 
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [settingsOpen, setSettingsOpen] = useState(false);
+  const [isDark, setIsDark] = useState(settings.theme === "dark");
   const scrollRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    document.documentElement.classList.toggle("dark", settings.theme === "dark");
-  }, []);
+    document.documentElement.classList.toggle("dark", isDark);
+  }, [isDark]);
+
+  const toggleTheme = () => {
+    setIsDark((prev) => {
+      const next = !prev;
+      setSettings({ ...settings, theme: next ? "dark" : "light" });
+      document.documentElement.classList.toggle("dark", next);
+      return next;
+    });
+  };
 
   useEffect(() => {
     if (scrollRef.current) {
@@ -54,6 +64,9 @@ export default function ChatPage() {
         onRenameSession={renameSession}
         isOpen={sidebarOpen}
         onClose={() => setSidebarOpen(false)}
+        onOpenSettings={() => setSettingsOpen(true)}
+        onToggleTheme={toggleTheme}
+        isDark={isDark}
       />
 
       <div className="flex-1 flex flex-col min-w-0">
