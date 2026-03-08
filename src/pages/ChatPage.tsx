@@ -16,6 +16,7 @@ export default function ChatPage() {
 
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [settingsOpen, setSettingsOpen] = useState(false);
+  const [isDark, setIsDark] = useState(settings.theme === "dark");
   const scrollRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
