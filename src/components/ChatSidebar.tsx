@@ -156,15 +156,34 @@ export function ChatSidebar({
               </div>
 
               <div className="p-4 border-t border-sidebar-border">
-                <div className="flex items-center gap-3">
-                  <div className="w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center">
-                    <span className="text-sm font-semibold text-primary">U</span>
-                  </div>
-                  <div className="text-sm">
-                    <p className="font-medium text-sidebar-foreground">User</p>
-                    <p className="text-xs text-muted-foreground">Free Plan</p>
-                  </div>
-                </div>
+                <DropdownMenu>
+                  <DropdownMenuTrigger asChild>
+                    <button className="flex items-center gap-3 w-full rounded-lg px-2 py-1.5 hover:bg-sidebar-accent/50 transition-colors">
+                      <div className="w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center">
+                        <span className="text-sm font-semibold text-primary">U</span>
+                      </div>
+                      <div className="text-sm text-left">
+                        <p className="font-medium text-sidebar-foreground">User</p>
+                        <p className="text-xs text-muted-foreground">Free Plan</p>
+                      </div>
+                    </button>
+                  </DropdownMenuTrigger>
+                  <DropdownMenuContent side="top" align="start" className="w-56">
+                    <DropdownMenuItem onClick={onOpenSettings}>
+                      <Settings className="w-4 h-4 mr-2" />
+                      Settings
+                    </DropdownMenuItem>
+                    <DropdownMenuItem onClick={onToggleTheme}>
+                      {isDark ? <Sun className="w-4 h-4 mr-2" /> : <Moon className="w-4 h-4 mr-2" />}
+                      {isDark ? "Light Mode" : "Dark Mode"}
+                    </DropdownMenuItem>
+                    <DropdownMenuSeparator />
+                    <DropdownMenuItem className="text-destructive focus:text-destructive">
+                      <LogOut className="w-4 h-4 mr-2" />
+                      Log Out
+                    </DropdownMenuItem>
+                  </DropdownMenuContent>
+                </DropdownMenu>
               </div>
             </motion.aside>
           </>
