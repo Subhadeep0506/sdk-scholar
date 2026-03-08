@@ -1,8 +1,7 @@
 import { useState, useRef, useEffect } from "react";
-import { Send, Globe, Settings } from "lucide-react";
+import { Send, Globe, Settings, ArrowUp } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Switch } from "@/components/ui/switch";
-import { AppSettings } from "@/types/chat";
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 
 type Props = {
   onSend: (content: string) => void;
@@ -37,29 +36,14 @@ export function ChatInput({ onSend, isLoading, webSearchEnabled, onToggleWebSear
     }
   }, [input]);
 
-  return (
-    <div className="border-t border-border bg-background p-4">
-      <div className="max-w-3xl mx-auto">
-        <div className="flex items-center gap-3 mb-2">
-          <div className="flex items-center gap-2">
-            <Globe className={`w-4 h-4 ${webSearchEnabled ? "text-accent" : "text-muted-foreground"}`} />
-            <span className="text-xs text-muted-foreground">Web Search</span>
-            <Switch
-              checked={webSearchEnabled}
-              onCheckedChange={onToggleWebSearch}
-              className="scale-75"
-            />
-          </div>
-          <button
-            onClick={onOpenSettings}
-            className="p-1.5 rounded-md text-muted-foreground hover:text-foreground hover:bg-muted transition-colors ml-auto"
-          >
-            <Settings className="w-4 h-4" />
-          </button>
-        </div>
+  const canSend = input.trim() && !isLoading;
 
-        <div className="flex gap-2 items-end">
-          <div className="flex-1 relative">
+  return (
+    <div className="p-3 sm:p-4 pb-4 sm:pb-6">
+      <div className="max-w-3xl mx-auto">
+        <div className="rounded-2xl bg-card ring-1 ring-border/60 shadow-lg shadow-background/50 focus-within:ring-2 focus-within:ring-primary/30 transition-all">
+          {/* Textarea */}
+          <div className="px-4 pt-3 pb-1">
             <textarea
               ref={textareaRef}
               value={input}
@@ -67,19 +51,62 @@ export function ChatInput({ onSend, isLoading, webSearchEnabled, onToggleWebSear
               onKeyDown={handleKeyDown}
               placeholder="Ask about any AI SDK..."
               rows={1}
-              className="w-full resize-none rounded-xl border border-input bg-card px-4 py-3 pr-12 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring scrollbar-thin"
+              className="w-full resize-none bg-transparent text-sm text-foreground placeholder:text-muted-foreground/60 focus:outline-none scrollbar-thin leading-relaxed"
             />
           </div>
-          <Button
-            onClick={handleSubmit}
-            disabled={!input.trim() || isLoading}
-            size="icon"
-            className="rounded-xl h-11 w-11 shrink-0"
-          >
-            <Send className="w-4 h-4" />
-          </Button>
+
+          {/* Bottom toolbar */}
+          <div className="flex items-center justify-between px-3 pb-2.5 pt-1">
+            <div className="flex items-center gap-1">
+              <TooltipProvider delayDuration={300}>
+                <Tooltip>
+                  <TooltipTrigger asChild>
+                    <button
+                      onClick={() => onToggleWebSearch(!webSearchEnabled)}
+                      className={`flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg text-xs font-medium transition-all ${
+                        webSearchEnabled
+                          ? "bg-accent/15 text-accent ring-1 ring-accent/30"
+                          : "text-muted-foreground hover:text-foreground hover:bg-muted/60"
+                      }`}
+                    >
+                      <Globe className="w-3.5 h-3.5" />
+                      <span className="hidden sm:inline">Search</span>
+                    </button>
+                  </TooltipTrigger>
+                  <TooltipContent>
+                    {webSearchEnabled ? "Web search enabled" : "Enable web search"}
+                  </TooltipContent>
+                </Tooltip>
+
+                <Tooltip>
+                  <TooltipTrigger asChild>
+                    <button
+                      onClick={onOpenSettings}
+                      className="p-1.5 rounded-lg text-muted-foreground hover:text-foreground hover:bg-muted/60 transition-all"
+                    >
+                      <Settings className="w-3.5 h-3.5" />
+                    </button>
+                  </TooltipTrigger>
+                  <TooltipContent>Settings</TooltipContent>
+                </Tooltip>
+              </TooltipProvider>
+            </div>
+
+            <button
+              onClick={handleSubmit}
+              disabled={!canSend}
+              className={`w-8 h-8 rounded-xl flex items-center justify-center transition-all ${
+                canSend
+                  ? "bg-primary text-primary-foreground hover:bg-primary/90 shadow-md shadow-primary/25"
+                  : "bg-muted text-muted-foreground cursor-not-allowed"
+              }`}
+            >
+              <ArrowUp className="w-4 h-4" />
+            </button>
+          </div>
         </div>
-        <p className="text-xs text-muted-foreground text-center mt-2">
+
+        <p className="text-[11px] text-muted-foreground/60 text-center mt-2.5">
           RAG Explorer uses retrieval-augmented generation. Responses may not always be accurate.
         </p>
       </div>

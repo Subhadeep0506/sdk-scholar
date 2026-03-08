@@ -38,7 +38,6 @@ export default function ChatPage() {
     }
   }, [activeSession.messages]);
 
-  // Cmd+K shortcut for sidebar
   useEffect(() => {
     const handler = (e: KeyboardEvent) => {
       if ((e.metaKey || e.ctrlKey) && e.key === "k") {
@@ -70,31 +69,31 @@ export default function ChatPage() {
       />
 
       <div className="flex-1 flex flex-col min-w-0">
-        {/* Header */}
-        <header className="h-14 border-b border-border flex items-center px-4 gap-3 shrink-0 bg-background">
+        {/* Header - glass effect */}
+        <header className="h-12 glass border-b border-border/40 flex items-center px-4 gap-3 shrink-0 z-10">
           <Button
             variant="ghost"
             size="icon"
-            className="lg:hidden"
+            className="lg:hidden h-8 w-8"
             onClick={() => setSidebarOpen(true)}
           >
-            <Menu className="w-5 h-5" />
+            <Menu className="w-4 h-4" />
           </Button>
           <div className="flex-1 min-w-0">
             <h2 className="text-sm font-semibold truncate">{activeSession.title}</h2>
             {activeSession.sdkFilter && (
-              <span className="text-xs text-muted-foreground">Filtered: {activeSession.sdkFilter}</span>
+              <span className="text-[11px] text-muted-foreground">Filtered: {activeSession.sdkFilter}</span>
             )}
           </div>
-          <kbd className="hidden sm:inline-flex items-center gap-1 px-2 py-1 text-xs text-muted-foreground bg-muted rounded-md border border-border">
+          <kbd className="hidden sm:inline-flex items-center gap-1 px-2 py-0.5 text-[10px] text-muted-foreground/70 bg-muted/50 rounded-md border border-border/50 font-mono">
             ⌘K
           </kbd>
         </header>
 
         {/* Messages */}
         {hasMessages ? (
-          <div ref={scrollRef} className="flex-1 overflow-y-auto scrollbar-thin p-4">
-            <div className="max-w-3xl mx-auto space-y-6">
+          <div ref={scrollRef} className="flex-1 overflow-y-auto scrollbar-thin">
+            <div className="max-w-3xl mx-auto px-4 py-6 space-y-5">
               {activeSession.messages.map((msg) => (
                 <MessageBubble key={msg.id} message={msg} />
               ))}
