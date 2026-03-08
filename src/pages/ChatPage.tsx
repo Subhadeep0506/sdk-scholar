@@ -20,8 +20,17 @@ export default function ChatPage() {
   const scrollRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    document.documentElement.classList.toggle("dark", settings.theme === "dark");
-  }, []);
+    document.documentElement.classList.toggle("dark", isDark);
+  }, [isDark]);
+
+  const toggleTheme = () => {
+    setIsDark((prev) => {
+      const next = !prev;
+      setSettings({ ...settings, theme: next ? "dark" : "light" });
+      document.documentElement.classList.toggle("dark", next);
+      return next;
+    });
+  };
 
   useEffect(() => {
     if (scrollRef.current) {
