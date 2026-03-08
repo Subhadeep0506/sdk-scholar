@@ -27,6 +27,9 @@ type Props = {
   onRenameSession: (id: string, title: string) => void;
   isOpen: boolean;
   onClose: () => void;
+  onOpenSettings: () => void;
+  onToggleTheme: () => void;
+  isDark: boolean;
 };
 
 export function ChatSidebar({
