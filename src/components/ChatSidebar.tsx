@@ -34,7 +34,7 @@ type Props = {
 
 export function ChatSidebar({
   sessions, activeSessionId, onSelectSession, onNewSession,
-  onDeleteSession, onRenameSession, isOpen, onClose,
+  onDeleteSession, onRenameSession, isOpen, onClose, onOpenSettings, onToggleTheme, isDark,
 }: Props) {
   const [sdkDialogOpen, setSdkDialogOpen] = useState(false);
   const [editingId, setEditingId] = useState<string | null>(null);
