@@ -64,6 +64,9 @@ export default function ChatPage() {
         onRenameSession={renameSession}
         isOpen={sidebarOpen}
         onClose={() => setSidebarOpen(false)}
+        onOpenSettings={() => setSettingsOpen(true)}
+        onToggleTheme={toggleTheme}
+        isDark={isDark}
       />
 
       <div className="flex-1 flex flex-col min-w-0">
