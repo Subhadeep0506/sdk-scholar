@@ -307,7 +307,8 @@ export function ChatSidebar({
             </DropdownMenuContent>
           </DropdownMenu>
         </div>
-      </aside>
+        </aside>
+      )}
 
       <Dialog open={sdkDialogOpen} onOpenChange={setSdkDialogOpen}>
         <DialogContent>
