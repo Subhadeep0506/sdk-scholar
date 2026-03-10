@@ -191,7 +191,8 @@ export function ChatSidebar({
       </AnimatePresence>
 
       {/* Desktop sidebar - toggleable */}
-      <aside className={`hidden w-72 bg-sidebar border-r border-sidebar-border flex-col shrink-0 transition-all duration-300 ${isOpen ? "lg:flex" : "lg:hidden"}`}>
+      {isOpen && (
+        <aside className="hidden w-72 bg-sidebar border-r border-sidebar-border lg:flex flex-col shrink-0 transition-all duration-300">
         <div className="p-4 border-b border-sidebar-border">
           <div className="flex items-center gap-2 mb-3">
             <div className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center">
