@@ -14,7 +14,7 @@ export default function ChatPage() {
     setActiveSessionId, newSession, deleteSession, renameSession, sendMessage, setSettings,
   } = useChatStore();
 
-  const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [sidebarOpen, setSidebarOpen] = useState(true);
   const [settingsOpen, setSettingsOpen] = useState(false);
   const [isDark, setIsDark] = useState(settings.theme === "dark");
   const scrollRef = useRef<HTMLDivElement>(null);
