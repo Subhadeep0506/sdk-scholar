@@ -1,3 +1,14 @@
+export type MessageSource = {
+  title: string;
+  url: string;
+};
+
+export type TokenUsage = {
+  promptTokens: number;
+  completionTokens: number;
+  totalTokens: number;
+};
+
 export type ChatMessage = {
   id: string;
   role: "user" | "assistant";
@@ -5,6 +16,9 @@ export type ChatMessage = {
   timestamp: number;
   chainOfThought?: ChainOfThoughtStep[];
   isLoading?: boolean;
+  sources?: MessageSource[];
+  tokenUsage?: TokenUsage;
+  liked?: boolean | null; // true = liked, false = disliked, null/undefined = neither
 };
 
 export type ChainOfThoughtStep = {
