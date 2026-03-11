@@ -212,12 +212,25 @@ export function useChatStore() {
       }
     );
 
+    const mockSources: MessageSource[] = [
+      { title: "Official SDK Documentation", url: "https://docs.example.com/sdk" },
+      { title: "GitHub - SDK Examples", url: "https://github.com/example/sdk" },
+      { title: "Stack Overflow Discussion", url: "https://stackoverflow.com/q/example" },
+    ];
+
+    const mockTokenUsage: TokenUsage = {
+      promptTokens: 280 + Math.floor(Math.random() * 200),
+      completionTokens: 350 + Math.floor(Math.random() * 300),
+      totalTokens: 0,
+    };
+    mockTokenUsage.totalTokens = mockTokenUsage.promptTokens + mockTokenUsage.completionTokens;
+
     setSessions((prev) => prev.map((s) =>
       s.id === activeSessionId
         ? {
             ...s,
             messages: s.messages.map((m) =>
-              m.id === aiMsgId ? { ...m, content: answer, isLoading: false } : m
+              m.id === aiMsgId ? { ...m, content: answer, isLoading: false, sources: mockSources, tokenUsage: mockTokenUsage } : m
             ),
           }
         : s
