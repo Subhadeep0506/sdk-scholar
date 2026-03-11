@@ -1,5 +1,5 @@
 import { useState, useCallback } from "react";
-import { ChatSession, ChatMessage, ChainOfThoughtStep, AppSettings, DEFAULT_SETTINGS } from "@/types/chat";
+import { ChatSession, ChatMessage, ChainOfThoughtStep, AppSettings, DEFAULT_SETTINGS, MessageSource, TokenUsage } from "@/types/chat";
 
 const generateId = () => Math.random().toString(36).substring(2, 15);
 
