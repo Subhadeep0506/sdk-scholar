@@ -53,8 +53,7 @@ export default function ChatPage() {
   const hasMessages = activeSession.messages.length > 0;
 
   return (
-    <div className="h-screen flex overflow-hidden">
-      {/* Sidebar bg extends full height */}
+    <div className="h-screen flex overflow-hidden bg-sidebar">
       <ChatSidebar
         sessions={sessions}
         activeSessionId={activeSessionId}
@@ -69,16 +68,14 @@ export default function ChatPage() {
         isDark={isDark}
       />
 
-      <div className="flex-1 flex flex-col min-w-0 relative">
-        {/* Curved container that overlays sidebar edge */}
+      <div className="flex-1 flex flex-col min-w-0">
         <div
-          className={`flex-1 flex flex-col min-w-0 bg-background transition-all duration-300 ${
+          className={`flex-1 flex flex-col min-w-0 bg-background overflow-hidden ${
             sidebarOpen ? "lg:rounded-tl-2xl" : ""
           }`}
-          style={{ position: "relative", zIndex: 1 }}
         >
           {/* Header */}
-          <header className="h-12 border-b border-border/40 flex items-center px-4 gap-3 shrink-0 z-10 bg-background/80 backdrop-blur-sm">
+          <header className="h-12 border-b border-border/40 flex items-center px-4 gap-3 shrink-0 z-10">
             <Button
               variant="ghost"
               size="icon"
