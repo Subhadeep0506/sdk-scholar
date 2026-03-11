@@ -313,8 +313,9 @@ export function ChatSidebar({
             </DropdownMenuContent>
           </DropdownMenu>
         </div>
-        </aside>
-      )}
+        </motion.aside>
+        )}
+      </AnimatePresence>
 
       <Dialog open={sdkDialogOpen} onOpenChange={setSdkDialogOpen}>
         <DialogContent>
