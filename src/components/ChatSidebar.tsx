@@ -198,7 +198,7 @@ export function ChatSidebar({
             animate={{ width: 288, opacity: 1 }}
             exit={{ width: 0, opacity: 0 }}
             transition={{ type: "spring", damping: 20, stiffness: 300 }}
-            className="hidden bg-sidebar border-r border-sidebar-border lg:flex flex-col shrink-0 overflow-hidden">
+            className="hidden bg-sidebar lg:flex flex-col shrink-0 overflow-hidden">
         <div className="p-4 border-b border-sidebar-border">
           <div className="flex items-center gap-2 mb-3">
             <div className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center">
