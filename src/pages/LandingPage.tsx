@@ -7,7 +7,7 @@ export default function LandingPage() {
   return (
     <div className="min-h-screen bg-background flex flex-col">
       {/* Nav */}
-      <nav className="h-16 border-b border-border/40 flex items-center justify-between px-6 md:px-12">
+      <nav className="h-16 flex items-center justify-between px-6 md:px-12">
         <div className="flex items-center gap-2">
           <div className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center">
             <Cpu className="w-4 h-4 text-primary-foreground" />
@@ -69,7 +69,7 @@ export default function LandingPage() {
             { icon: BookOpen, title: "Multi-SDK Support", desc: "Ask about LangChain, LlamaIndex, CrewAI, and more in one place." },
             { icon: Zap, title: "Chain of Thought", desc: "See exactly how your answer is being constructed, step by step." },
           ].map((f) => (
-            <div key={f.title} className="rounded-xl border border-border/60 bg-card p-5 text-left">
+            <div key={f.title} className="rounded-xl bg-card p-5 text-left shadow-sm">
               <div className="w-9 h-9 rounded-lg bg-primary/10 flex items-center justify-center mb-3">
                 <f.icon className="w-4 h-4 text-primary" />
               </div>
@@ -81,7 +81,7 @@ export default function LandingPage() {
       </main>
 
       {/* Footer */}
-      <footer className="h-14 border-t border-border/40 flex items-center justify-center text-xs text-muted-foreground">
+      <footer className="h-14 flex items-center justify-center text-xs text-muted-foreground">
         © 2026 RAG Explorer. Built with Lovable.
       </footer>
     </div>

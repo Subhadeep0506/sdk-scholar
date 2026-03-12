@@ -178,23 +178,22 @@
   .chat-markdown pre {
     @apply rounded-xl p-4 mb-3 overflow-x-auto text-xs leading-relaxed relative;
     background: hsl(var(--background)) !important;
-    border: 1px solid hsl(var(--border));
   }
   .chat-markdown pre code {
     @apply text-xs font-mono p-0 bg-transparent;
     color: hsl(var(--foreground));
   }
   .chat-markdown blockquote {
-    @apply border-l-2 border-primary/40 pl-4 italic text-muted-foreground mb-3;
+    @apply pl-4 italic text-muted-foreground mb-3;
   }
   .chat-markdown table {
     @apply w-full mb-3 text-sm;
   }
   .chat-markdown th {
-    @apply text-left font-semibold pb-2 border-b border-border;
+    @apply text-left font-semibold pb-2;
   }
   .chat-markdown td {
-    @apply py-1.5 border-b border-border/50;
+    @apply py-1.5;
   }
   .chat-markdown a {
     @apply text-primary underline underline-offset-2 hover:text-primary/80;
@@ -203,6 +202,6 @@
     @apply font-semibold;
   }
   .chat-markdown hr {
-    @apply border-border my-4;
+    @apply my-4 h-px bg-muted border-none;
   }
 }

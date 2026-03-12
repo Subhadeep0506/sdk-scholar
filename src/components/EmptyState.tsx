@@ -15,7 +15,7 @@ export function EmptyState({ onSelectQuery }: Props) {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <div className="w-14 h-14 rounded-2xl bg-primary/10 ring-1 ring-primary/20 flex items-center justify-center mx-auto mb-6">
+          <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center mx-auto mb-6">
             <Sparkles className="w-7 h-7 text-primary" />
           </div>
           <h2 className="text-xl sm:text-2xl font-bold mb-2">What can I help you explore?</h2>
@@ -32,7 +32,7 @@ export function EmptyState({ onSelectQuery }: Props) {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.15 + i * 0.04, duration: 0.35 }}
               onClick={() => onSelectQuery(query)}
-              className="group text-left p-3.5 rounded-xl bg-card ring-1 ring-border/50 hover:ring-primary/30 hover:shadow-md hover:shadow-primary/5 transition-all text-sm text-foreground flex items-center justify-between gap-3"
+              className="group text-left p-3.5 rounded-xl bg-card shadow-sm hover:shadow-md hover:shadow-primary/5 transition-all text-sm text-foreground flex items-center justify-between gap-3"
             >
               <span className="line-clamp-2">{query}</span>
               <ArrowRight className="w-3.5 h-3.5 text-muted-foreground opacity-0 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all shrink-0" />
