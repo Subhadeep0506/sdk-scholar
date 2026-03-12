@@ -202,6 +202,6 @@
     @apply font-semibold;
   }
   .chat-markdown hr {
-    @apply border-border my-4;
+    @apply my-4 h-px bg-muted border-none;
   }
 }

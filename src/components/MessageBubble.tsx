@@ -210,7 +210,7 @@ export function MessageBubble({ message, onRegenerate }: Props) {
                       <span className="text-muted-foreground">Completion</span>
                       <span className="font-mono font-medium">{tokenUsage.completionTokens}</span>
                     </div>
-                    <div className="border-t border-border pt-1.5 flex justify-between font-medium">
+                    <div className="pt-1.5 flex justify-between font-medium">
                       <span className="text-muted-foreground">Total</span>
                       <span className="font-mono">{tokenUsage.totalTokens}</span>
                     </div>

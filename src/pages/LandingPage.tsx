@@ -81,7 +81,7 @@ export default function LandingPage() {
       </main>
 
       {/* Footer */}
-      <footer className="h-14 border-t border-border/40 flex items-center justify-center text-xs text-muted-foreground">
+      <footer className="h-14 flex items-center justify-center text-xs text-muted-foreground">
         © 2026 RAG Explorer. Built with Lovable.
       </footer>
     </div>

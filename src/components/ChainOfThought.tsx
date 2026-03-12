@@ -38,7 +38,7 @@ export function ChainOfThought({ steps }: { steps: ChainOfThoughtStep[] }) {
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          className="rounded-xl bg-muted/40 ring-1 ring-border/40 p-3"
+          className="rounded-xl bg-muted/40 p-3"
         >
           {steps.map((step, i) => {
             const Icon = stepIcons[step.id] || Sparkles;

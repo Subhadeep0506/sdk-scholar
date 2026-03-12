@@ -90,7 +90,7 @@ export default function ChatPage() {
                 <span className="text-[11px] text-muted-foreground">Filtered: {activeSession.sdkFilter}</span>
               )}
             </div>
-            <kbd className="hidden sm:inline-flex items-center gap-1 px-2 py-0.5 text-[10px] text-muted-foreground/70 bg-muted/50 rounded-md border border-border/50 font-mono">
+            <kbd className="hidden sm:inline-flex items-center gap-1 px-2 py-0.5 text-[10px] text-muted-foreground/70 bg-muted/50 rounded-md font-mono">
               ⌘K
             </kbd>
           </header>

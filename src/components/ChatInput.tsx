@@ -41,7 +41,7 @@ export function ChatInput({ onSend, isLoading, webSearchEnabled, onToggleWebSear
   return (
     <div className="p-3 sm:p-4 pb-4 sm:pb-6">
       <div className="max-w-3xl mx-auto">
-        <div className="rounded-2xl bg-card ring-1 ring-border/60 shadow-lg shadow-background/50 focus-within:ring-2 focus-within:ring-primary/30 transition-all">
+        <div className="rounded-2xl bg-card shadow-lg shadow-background/50 focus-within:ring-2 focus-within:ring-primary/30 transition-all">
           {/* Textarea */}
           <div className="px-4 pt-3 pb-1">
             <textarea
