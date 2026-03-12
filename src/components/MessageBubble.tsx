@@ -68,7 +68,7 @@ export function MessageBubble({ message, onRegenerate }: Props) {
         <div className={`rounded-2xl px-4 py-3 ${
           isUser
             ? "bg-primary text-primary-foreground rounded-br-lg ml-auto"
-            : "bg-card ring-1 ring-border/60 rounded-bl-lg shadow-sm"
+            : "bg-card rounded-bl-lg shadow-sm"
         }`}>
           {message.isLoading && !message.content ? (
             <TypingIndicator />
