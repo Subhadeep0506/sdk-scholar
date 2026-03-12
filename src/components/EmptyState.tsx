@@ -15,7 +15,7 @@ export function EmptyState({ onSelectQuery }: Props) {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <div className="w-14 h-14 rounded-2xl bg-primary/10 ring-1 ring-primary/20 flex items-center justify-center mx-auto mb-6">
+          <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center mx-auto mb-6">
             <Sparkles className="w-7 h-7 text-primary" />
           </div>
           <h2 className="text-xl sm:text-2xl font-bold mb-2">What can I help you explore?</h2>
