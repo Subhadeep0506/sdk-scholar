@@ -7,7 +7,7 @@ export default function LandingPage() {
   return (
     <div className="min-h-screen bg-background flex flex-col">
       {/* Nav */}
-      <nav className="h-16 border-b border-border/40 flex items-center justify-between px-6 md:px-12">
+      <nav className="h-16 flex items-center justify-between px-6 md:px-12">
         <div className="flex items-center gap-2">
           <div className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center">
             <Cpu className="w-4 h-4 text-primary-foreground" />
