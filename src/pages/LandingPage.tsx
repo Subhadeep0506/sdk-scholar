@@ -69,7 +69,7 @@ export default function LandingPage() {
             { icon: BookOpen, title: "Multi-SDK Support", desc: "Ask about LangChain, LlamaIndex, CrewAI, and more in one place." },
             { icon: Zap, title: "Chain of Thought", desc: "See exactly how your answer is being constructed, step by step." },
           ].map((f) => (
-            <div key={f.title} className="rounded-xl border border-border/60 bg-card p-5 text-left">
+            <div key={f.title} className="rounded-xl bg-card p-5 text-left shadow-sm">
               <div className="w-9 h-9 rounded-lg bg-primary/10 flex items-center justify-center mb-3">
                 <f.icon className="w-4 h-4 text-primary" />
               </div>
