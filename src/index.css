@@ -178,7 +178,6 @@
   .chat-markdown pre {
     @apply rounded-xl p-4 mb-3 overflow-x-auto text-xs leading-relaxed relative;
     background: hsl(var(--background)) !important;
-    border: 1px solid hsl(var(--border));
   }
   .chat-markdown pre code {
     @apply text-xs font-mono p-0 bg-transparent;
