@@ -55,7 +55,7 @@ export function MessageBubble({ message, onRegenerate }: Props) {
       className={`flex gap-3 ${isUser ? "justify-end" : "justify-start"}`}
     >
       {!isUser && (
-        <div className="w-7 h-7 rounded-xl bg-primary/10 flex items-center justify-center shrink-0 mt-1 ring-1 ring-primary/20">
+        <div className="w-7 h-7 rounded-xl bg-primary/10 flex items-center justify-center shrink-0 mt-1">
           <Bot className="w-3.5 h-3.5 text-primary" />
         </div>
       )}
