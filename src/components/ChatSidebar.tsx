@@ -194,10 +194,10 @@ export function ChatSidebar({
       <AnimatePresence>
         {isOpen && (
           <motion.aside
-            initial={{ width: 0, opacity: 0 }}
-            animate={{ width: 288, opacity: 1 }}
-            exit={{ width: 0, opacity: 0 }}
-            transition={{ type: "spring", damping: 20, stiffness: 300 }}
+            initial={{ width: 0 }}
+            animate={{ width: 288 }}
+            exit={{ width: 0 }}
+            transition={{ duration: 0.25, ease: [0.4, 0, 0.2, 1] }}
             className="hidden bg-sidebar lg:flex flex-col shrink-0 overflow-hidden">
         <div className="p-4 border-b border-sidebar-border">
           <div className="flex items-center gap-2 mb-3">
