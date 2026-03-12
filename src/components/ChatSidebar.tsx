@@ -169,7 +169,7 @@ export function ChatSidebar({
                 ))}
               </div>
 
-              <div className="p-4 border-t border-sidebar-border">
+              <div className="p-4">
                 <DropdownMenu>
                   <DropdownMenuTrigger asChild>
                     <button className="flex items-center gap-3 w-full rounded-lg px-2 py-1.5 hover:bg-sidebar-accent/50 transition-colors">
