@@ -213,7 +213,7 @@ export function ChatSidebar({
             exit={{ width: 0 }}
             transition={{ duration: 0.25, ease: [0.4, 0, 0.2, 1] }}
             className="hidden bg-sidebar lg:flex flex-col shrink-0 overflow-hidden">
-        <div className="p-4 border-b border-sidebar-border">
+        <div className="p-4">
           <div className="flex items-center gap-2 mb-3">
             <div className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center">
               <Cpu className="w-4 h-4 text-primary-foreground" />
@@ -222,7 +222,7 @@ export function ChatSidebar({
           </div>
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
-              <Button variant="outline" className="w-full justify-between bg-sidebar-accent text-sidebar-accent-foreground border-sidebar-border">
+              <Button variant="outline" className="w-full justify-between bg-sidebar-accent text-sidebar-accent-foreground border-transparent">
                 <span className="flex items-center gap-2">
                   <Plus className="w-4 h-4" />
                   New Chat
