@@ -75,7 +75,7 @@ export default function ChatPage() {
           }`}
         >
           {/* Header */}
-          <header className="h-12 border-b border-border/40 flex items-center px-4 gap-3 shrink-0 z-10">
+          <header className="h-12 flex items-center px-4 gap-3 shrink-0 z-10">
             <Button
               variant="ghost"
               size="icon"
