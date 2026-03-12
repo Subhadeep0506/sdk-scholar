@@ -184,7 +184,7 @@
     color: hsl(var(--foreground));
   }
   .chat-markdown blockquote {
-    @apply border-l-2 border-primary/40 pl-4 italic text-muted-foreground mb-3;
+    @apply pl-4 italic text-muted-foreground mb-3;
   }
   .chat-markdown table {
     @apply w-full mb-3 text-sm;
