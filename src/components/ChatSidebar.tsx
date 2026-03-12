@@ -254,7 +254,7 @@ export function ChatSidebar({
               }`}
               onClick={() => onSelectSession(session.id)}
             >
-              <MessageSquare className="w-4 h-4 shrink-0 text-muted-foreground" />
+              <MessageSquare className="w-4 h-4 shrink-0 text-muted-foreground mt-1" />
               <div className="flex-1 min-w-0">
                 {editingId === session.id ? (
                   <Input
@@ -269,9 +269,22 @@ export function ChatSidebar({
                 ) : (
                   <>
                     <p className="text-sm font-medium truncate">{session.title}</p>
-                    {session.sdkFilter && (
-                      <span className="text-xs text-muted-foreground">{session.sdkFilter}</span>
-                    )}
+                    <div className="flex items-center gap-2 mt-0.5 flex-wrap">
+                      {session.sdkFilter && (
+                        <span className="inline-flex items-center gap-0.5 text-[10px] font-medium text-primary bg-primary/10 rounded px-1.5 py-0.5">
+                          <Cpu className="w-2.5 h-2.5" />
+                          {session.sdkFilter}
+                        </span>
+                      )}
+                      <span className="inline-flex items-center gap-0.5 text-[10px] text-muted-foreground">
+                        <Hash className="w-2.5 h-2.5" />
+                        {session.messages.length}
+                      </span>
+                      <span className="inline-flex items-center gap-0.5 text-[10px] text-muted-foreground">
+                        <Clock className="w-2.5 h-2.5" />
+                        {formatDistanceToNow(session.updatedAt, { addSuffix: true })}
+                      </span>
+                    </div>
                   </>
                 )}
               </div>
